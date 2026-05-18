@@ -75,4 +75,8 @@ export class BmiFormComponent {
   get weightControl(): FormControl {
     return this.form.controls.weight as FormControl;
   }
+
+  sayHi(): void { 
+    console.log('Hello, World!');
+  }
 }
