@@ -77,6 +77,6 @@ export class BmiFormComponent {
   }
 
   sayHi(): void { 
-    console.log('Hello, World!');
+    console.log('Welcome to MCP Server Application');
   }
 }
