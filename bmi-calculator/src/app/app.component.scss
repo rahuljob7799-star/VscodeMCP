@@ -1,0 +1,228 @@
+.app-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.hero-panel {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.75rem 2rem;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 36px 90px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.hero-copy {
+  max-width: 40rem;
+}
+
+.hero-label {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.hero-panel h1 {
+  margin: 1rem 0 1rem;
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  line-height: 1.05;
+}
+
+.hero-panel p {
+  max-width: 42rem;
+  color: #475569;
+  line-height: 1.8;
+}
+
+.hero-tile {
+  position: relative;
+  min-height: 260px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #eef2ff 0%, #dbeafe 100%);
+  overflow: hidden;
+}
+
+.hero-flare {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.4), transparent 36%),
+    radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.22), transparent 28%);
+}
+
+.hero-chart {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, transparent 40%),
+    radial-gradient(circle at 20% 35%, rgba(59, 130, 246, 0.32), transparent 14%),
+    radial-gradient(circle at 75% 20%, rgba(14, 165, 233, 0.2), transparent 16%);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+}
+
+.side-panel {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.history-card {
+  border-radius: 28px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.06);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1.25rem;
+}
+
+.history-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.history-count {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.history-table-wrapper {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.history-table th,
+.history-table td {
+  text-align: left;
+  padding: 0.95rem 0.85rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.history-table th {
+  color: #64748b;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.history-table td {
+  color: #1e293b;
+}
+
+.category-chip {
+  display: inline-flex;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.history-empty {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #64748b;
+}
+
+.history-empty .material-icons {
+  font-size: 3rem;
+}
+
+.analytics-panel {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.analytics-card {
+  border-radius: 28px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.05);
+}
+
+.analytics-card h2 {
+  margin: 0.7rem 0 1.25rem;
+}
+
+.chart-wrapper {
+  min-height: 320px;
+}
+
+.chart-empty {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  min-height: 260px;
+  text-align: center;
+  color: #64748b;
+}
+
+.chart-empty .material-icons {
+  font-size: 3rem;
+}
+
+@media (max-width: 1080px) {
+  .hero-panel,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 1rem;
+  }
+
+  .hero-panel {
+    padding: 1.4rem;
+    gap: 1.2rem;
+  }
+
+  .history-table {
+    min-width: 0;
+  }
+}
+
+.app-shell.dark-theme,
+.app-shell.dark-theme .history-card,
+.app-shell.dark-theme .analytics-card,
+.app-shell.dark-theme .hero-panel {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.app-shell.dark-theme .hero-copy p,
+.app-shell.dark-theme .history-count,
+.app-shell.dark-theme .chart-empty,
+.app-shell.dark-theme .history-table td {
+  color: #cbd5e1;
+}
+
+.app-shell.dark-theme .history-table th {
+  color: #94a3b8;
+}

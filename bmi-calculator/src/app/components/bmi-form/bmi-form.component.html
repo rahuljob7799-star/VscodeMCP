@@ -1,0 +1,65 @@
+<mat-card class="bmi-card" elevation="4" aria-labelledby="bmi-form-title">
+  <div class="card-header">
+    <div>
+      <div class="section-label">Calculator</div>
+      <h2 id="bmi-form-title">BMI Input</h2>
+      <p>Enter the values and calculate your current body mass index.</p>
+    </div>
+    <div class="icon-shell" aria-hidden="true">
+      <mat-icon>monitor_weight</mat-icon>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form-grid" novalidate>
+    <mat-form-field appearance="outline" class="field-full">
+      <mat-label>Height</mat-label>
+      <input matInput type="number" formControlName="height" placeholder="Enter height" aria-label="Height" />
+      <mat-error *ngIf="heightControl.hasError('required')">Height is required.</mat-error>
+      <mat-error *ngIf="heightControl.hasError('min')">Enter a positive number.</mat-error>
+      <mat-hint align="end">{{ form.controls.heightUnit.value }}</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field-unit">
+      <mat-label>Height unit</mat-label>
+      <mat-select formControlName="heightUnit" aria-label="Height unit">
+        <mat-option *ngFor="let unit of units" [value]="unit.value">{{ unit.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field-full">
+      <mat-label>Weight</mat-label>
+      <input matInput type="number" formControlName="weight" placeholder="Enter weight" aria-label="Weight" />
+      <mat-error *ngIf="weightControl.hasError('required')">Weight is required.</mat-error>
+      <mat-error *ngIf="weightControl.hasError('min')">Enter a positive number.</mat-error>
+      <mat-hint align="end">{{ form.controls.weightUnit.value }}</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field-unit">
+      <mat-label>Weight unit</mat-label>
+      <mat-select formControlName="weightUnit" aria-label="Weight unit">
+        <mat-option *ngFor="let unit of weightUnits" [value]="unit.value">{{ unit.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="button-row">
+      <button mat-flat-button color="primary" type="submit" [disabled]="isCalculating" aria-label="Calculate BMI">
+        <mat-icon>calculate</mat-icon>
+        <span>Calculate BMI</span>
+      </button>
+      <button mat-stroked-button color="accent" type="button" (click)="reset()" aria-label="Reset form">
+        <mat-icon>refresh</mat-icon>
+        <span>Reset</span>
+      </button>
+    </div>
+
+    <div class="loader" *ngIf="isCalculating" aria-live="polite">
+      <mat-progress-spinner
+        diameter="48"
+        mode="indeterminate"
+        color="primary"
+        aria-label="Calculating BMI"
+      ></mat-progress-spinner>
+      <span>Calculating health score…</span>
+    </div>
+  </form>
+</mat-card>

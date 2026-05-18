@@ -1,0 +1,53 @@
+<mat-card class="result-card" elevation="4" aria-live="polite">
+  <div class="result-header">
+    <div>
+      <span class="section-label">Result</span>
+      <h2>Your BMI snapshot</h2>
+    </div>
+    <span class="category-badge" [style.background]="gradientColor + '22'" [style.color]="gradientColor">{{ result?.category }}</span>
+  </div>
+
+  <div class="score-panel" *ngIf="result; else placeholder">
+    <div class="score-value">{{ result.bmi }}</div>
+    <div class="score-caption">BMI</div>
+
+    <div class="metric-grid">
+      <div>
+        <span>Height</span>
+        <strong>{{ result.heightCm | number:'1.0-0' }} cm</strong>
+      </div>
+      <div>
+        <span>Weight</span>
+        <strong>{{ result.weightKg | number:'1.0-1' }} kg</strong>
+      </div>
+    </div>
+
+    <div class="progress-shell">
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="progressValue" [style.background]="gradientColor"></div>
+      </div>
+      <div class="progress-labels">
+        <span>Under</span>
+        <span>Healthy</span>
+        <span>High</span>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="suggestion-panel">
+      <mat-icon>lightbulb</mat-icon>
+      <div>
+        <div class="suggestion-title">Health suggestion</div>
+        <p>{{ result.suggestion }}</p>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #placeholder>
+    <div class="placeholder-state">
+      <mat-icon>insights</mat-icon>
+      <p>Fill in height and weight to calculate BMI and save your wellness progress.</p>
+    </div>
+  </ng-template>
+</mat-card>

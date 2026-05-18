@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" class="header-toolbar" role="banner">
+  <div class="brand">
+    <span class="brand-icon">❤️</span>
+    <div>
+      <div class="brand-title">BMI Wellness</div>
+      <div class="brand-subtitle">Smart body mass index calculator</div>
+    </div>
+  </div>
+
+  <div class="toolbar-actions">
+    <button
+      mat-icon-button
+      type="button"
+      aria-label="Toggle dark mode"
+      (click)="toggleTheme()"
+      [attr.aria-pressed]="darkMode"
+      matTooltip="Toggle dark mode"
+    >
+      <mat-icon>{{ darkMode ? 'dark_mode' : 'light_mode' }}</mat-icon>
+    </button>
+    <mat-slide-toggle
+      class="theme-switch"
+      [checked]="darkMode"
+      (change)="toggleTheme()"
+      aria-label="Dark mode toggle"
+    >
+      Dark
+    </mat-slide-toggle>
+  </div>
+</mat-toolbar>
